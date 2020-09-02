@@ -2,8 +2,8 @@
 #import <OpenGLES/ES2/glext.h>
 #import "RSSignatureViewManager.h"
 
-#define             STROKE_WIDTH_MIN 0.004 // Stroke width determined by touch velocity
-#define             STROKE_WIDTH_MAX 0.008
+#define             STROKE_WIDTH_MIN 0.005 // Stroke width determined by touch velocity
+#define             STROKE_WIDTH_MAX 0.010
 #define       STROKE_WIDTH_SMOOTHING 0.5   // Low pass filter alpha
 
 #define           VELOCITY_CLAMP_MIN 20
