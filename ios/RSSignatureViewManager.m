@@ -6,7 +6,7 @@
 @implementation RSSignatureViewManager
 
 @synthesize bridge = _bridge;
-@synthesize signView;
+@synthesize signView, iDragged;
 
 RCT_EXPORT_MODULE()
 
@@ -48,14 +48,20 @@ RCT_EXPORT_METHOD(resetImage:(nonnull NSNumber *)reactTag) {
 	 sendDeviceEventWithName:@"onSaveEvent"
 	 body:@{
 					@"pathName": aTempPath,
-					@"encoded": aEncoded
+					@"encoded": aEncoded,
+					@"iDragged": @(iDragged),
 					}];
 }
 
 -(void) publishDraggedEvent {
+	iDragged = YES;
 	[self.bridge.eventDispatcher
 	 sendDeviceEventWithName:@"onDragEvent"
 	 body:@{@"dragged": @YES}];
+}
+
+-(void) resetIDragged {
+iDragged = NO;
 }
 
 @end
